@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <React.Fragment>
+      <header>
+        <div>Header</div>
       </header>
-    </div>
+      <nav>
+        <div>Nav</div>
+      </nav>
+      <main>
+        <div>Main</div>
+        <section>
+          <div>Section</div>
+        </section>
+      </main>
+      <footer>
+        <div>Footer</div>
+      </footer>
+    </React.Fragment>
   );
 }
 
