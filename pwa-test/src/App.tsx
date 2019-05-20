@@ -1,24 +1,18 @@
 import React from 'react';
-import './App.css';
+import Navigation from './components/Navigation'
+import 'bulma/css/bulma.css'
 
 const App: React.FC = () => {
   return (
     <React.Fragment>
-      <header>
-        <div>Header</div>
+      <header className='hero is-info is-bold is-large'>
+        <nav className='hero-header'>
+          <Navigation />
+        </nav>
+        <main className='hero-body has-text-centered'>hero body</main>
+        <section className='hero-foot has-text-centered'>hero footer</section>
       </header>
-      <nav>
-        <div>Nav</div>
-      </nav>
-      <main>
-        <div>Main</div>
-        <section>
-          <div>Section</div>
-        </section>
-      </main>
-      <footer>
-        <div>Footer</div>
-      </footer>
+      <footer className='footer has-text-centered'>footer</footer>
     </React.Fragment>
   );
 }
