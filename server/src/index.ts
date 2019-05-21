@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-
+import * as compression from 'compression'
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as fetch from 'node-fetch'
@@ -9,6 +9,7 @@ import * as fetch from 'node-fetch'
 const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 const app = express()
 
+app.use(compression())
 app.use(bodyParser.json())
 app.use(redirectToHTTPS([/localhost:(\d{4})/], [], 301));
 
