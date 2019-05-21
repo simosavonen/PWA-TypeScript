@@ -1,6 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
+
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as fetch from 'node-fetch'
