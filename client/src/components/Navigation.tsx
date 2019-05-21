@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Navigation: React.FC = () => {
   return (
@@ -10,4 +10,4 @@ const Navigation: React.FC = () => {
   )
 }
 
-export default Navigation;
+export default Navigation
