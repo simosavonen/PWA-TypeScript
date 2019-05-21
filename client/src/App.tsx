@@ -48,7 +48,13 @@ const App: React.FC = () => {
         </main>
         <section className='hero-foot has-text-centered'>hero footer</section>
       </header>
-      <footer className='footer has-text-centered'>footer</footer>
+      <footer className='footer has-text-centered'>
+        <p>PWA TypeScript demo app - by Simo Savonen.</p>
+        Replicates the <a href='https://codelabs.developers.google.com/codelabs/your-first-pwapp/'>Google Codelabs example</a> but
+        uses React for the front-end, and TypeScript instead of plain JS.
+        <p><a href='https://darksky.net/poweredby/'>Powered by Dark Sky API</a>,
+        weather icons designed by <a href='http://adamwhitcroft.com/climacons/'>@adamwhitcroft</a></p>
+      </footer>
     </React.Fragment>
   );
 }
