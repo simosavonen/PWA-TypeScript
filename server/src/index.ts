@@ -5,10 +5,12 @@ import * as compression from 'compression'
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as fetch from 'node-fetch'
+import * as cors from 'cors'
 
 const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 const app = express()
 
+app.use(cors())
 app.use(compression())
 app.use(bodyParser.json())
 app.use(redirectToHTTPS([/localhost:(\d{4})/], [], 301));
@@ -33,7 +35,7 @@ const generateFakeForecast = (location: string) => {
 
 const getForecast = (request: express.Request, response: express.Response) => {
   const location = request.params.location || '60.4513427,22.2681291'
-  const url = `${BASE_URL}/${API_KEY}/${location}`
+  const url = `${BASE_URL}/${API_KEY}/${location}?units=si&exclude=alerts,flags,minutely,hourly`
   fetch.default(url).then((response) => {
     return response.json()
   }).then((data) => {

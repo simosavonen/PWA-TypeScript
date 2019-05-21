@@ -3,14 +3,24 @@ import Navigation from './components/Navigation'
 import WeatherToday from './components/WeatherToday'
 import 'bulma/css/bulma.css'
 
+type WeatherData = {
+  data: {
+    currently: {
+      temperature: number
+    }
+  }
+}
 
 const App: React.FC = () => {
   //const [coords, setCoords] = useState('60.4508322,22.2637141')
-  const [data, setData] = useState('')
+  const [data, setData] = useState()
 
   useEffect(() => {
+    const url = process.env.NODE_ENV === 'production'
+      ? '/forecast/'
+      : 'http://localhost:3001/forecast'
     const getForecastFromNetwork = () => {
-      return fetch(`/forecast/`)
+      return fetch(url)
         .then((response) => {
           return response.json();
         })
