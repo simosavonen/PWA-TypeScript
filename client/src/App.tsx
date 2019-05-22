@@ -33,8 +33,8 @@ const App: React.FC = () => {
         .then((response) => {
           return response.json();
         })
-        .catch(() => {
-          return null;
+        .catch((error) => {
+          console.log('Are you offline?', error);
         })
     }
 
