@@ -1,5 +1,16 @@
 import React from 'react'
 
+import sun from '../climacons/Sun.svg'
+import moon from '../climacons/Moon.svg'
+import cloudRain from '../climacons/Cloud-Rain.svg'
+import cloudSnow from '../climacons/Cloud-Snow.svg'
+import cloudHail from '../climacons/Cloud-Hail.svg'
+import wind from '../climacons/Wind.svg'
+import fog from '../climacons/Cloud-Fog.svg'
+import cloud from '../climacons/Cloud.svg'
+import cloudSun from '../climacons/Cloud-Sun.svg'
+import cloudMoon from '../climacons/Cloud-Moon.svg'
+
 type WeatherData = {
   data: {
     currently: {
@@ -29,25 +40,25 @@ const WeatherToday: React.FC<WeatherData> = ({ data }) => {
   const getWeatherIcon = (icon: string) => {
     switch (icon) {
       case 'clear-day':
-        return '/images/climacons/Sun.svg'
+        return sun
       case 'clear-night':
-        return '/images/climacons/Moon.svg'
+        return moon
       case 'rain':
-        return '/images/climacons/Cloud-Rain.svg'
+        return cloudRain
       case 'snow':
-        return '/images/climacons/Cloud-Snow.svg'
+        return cloudSnow
       case 'sleet':
-        return '/images/climacons/Cloud-Hail.svg'
+        return cloudHail
       case 'wind':
-        return '/images/climacons/Wind.svg'
+        return wind
       case 'fog':
-        return '/images/climacons/Cloud-Fog.svg'
+        return fog
       case 'cloudy':
-        return '/images/climacons/Cloud.svg'
+        return cloud
       case 'partly-cloudy-day':
-        return '/images/climacons/Cloud-Sun.svg'
+        return cloudSun
       case 'partly-cloudy-night':
-        return '/images/climacons/Cloud-Moon.svg'
+        return cloudMoon
       default:
         return ''
     }
