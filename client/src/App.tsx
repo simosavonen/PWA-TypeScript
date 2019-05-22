@@ -35,13 +35,19 @@ const App: React.FC = () => {
         })
         .catch((error) => {
           console.log('Are you offline?', error);
+          return null
         })
     }
 
     getForecastFromNetwork()
       .then((forecast) => {
-        localStorage.setItem('weatherData', JSON.stringify(forecast))
-        setData(forecast)
+        if (forecast) {
+          localStorage.setItem('weatherData', JSON.stringify(forecast))
+          setData(forecast)
+        }
+      })
+      .catch((error) => {
+        console.log('Are you offline?', error);
       })
   }, [])
 
