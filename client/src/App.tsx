@@ -16,9 +16,18 @@ const App: React.FC = () => {
   const [data, setData] = useState()
 
   useEffect(() => {
+    const weatherString = localStorage.getItem('weatherData')
+    if (weatherString) {
+      const weatherData = JSON.parse(weatherString)
+      setData(weatherData)
+    }
+  }, [])
+
+  useEffect(() => {
     const url = process.env.NODE_ENV === 'production'
       ? '/forecast/'
       : 'http://localhost:3001/forecast'
+
     const getForecastFromNetwork = () => {
       return fetch(url)
         .then((response) => {
@@ -31,6 +40,7 @@ const App: React.FC = () => {
 
     getForecastFromNetwork()
       .then((forecast) => {
+        localStorage.setItem('weatherData', JSON.stringify(forecast))
         setData(forecast)
       })
   }, [])
