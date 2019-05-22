@@ -41,7 +41,7 @@ const App: React.FC = () => {
 
     getForecastFromNetwork()
       .then((forecast) => {
-        if (forecast) {
+        if (typeof forecast !== 'undefined') {
           localStorage.setItem('weatherData', JSON.stringify(forecast))
           setData(forecast)
         }
