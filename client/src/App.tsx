@@ -31,6 +31,9 @@ const App: React.FC = () => {
     const getForecastFromNetwork = () => {
       return fetch(url)
         .then((response) => {
+          if (!response.ok) {
+            throw Error(response.statusText)
+          }
           return response.json();
         })
         .catch((error) => {
@@ -41,7 +44,7 @@ const App: React.FC = () => {
 
     getForecastFromNetwork()
       .then((forecast) => {
-        if (typeof forecast !== 'undefined') {
+        if (forecast) {
           localStorage.setItem('weatherData', JSON.stringify(forecast))
           setData(forecast)
         }
